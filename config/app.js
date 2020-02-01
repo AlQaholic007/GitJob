@@ -14,7 +14,7 @@ module.exports = {
   author: "Soham Parekh",
   version: "1.0.0",
   db: {
-    connectionUri: "mongodb://" + dbHost + ":27017/jobRec",
+    connectionUri: "mongodb://" + dbHost + ":27017/gitjob",
     params: {},
     collections: ["moment", "user", "feeling", "ask"]
   }

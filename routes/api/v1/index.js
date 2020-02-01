@@ -123,12 +123,12 @@ router.get("/v1/posts", function(req, res) {
 router.post("/v1/comment", function(req, res, next) {
   if (!req.session.user) res.status(404).send("Unauthorized");
   db.comment(
-    { username: req.body.author },
+    { id: req.body.author },
     { by: req.session.user.username, text: req.body.text },
     req.body._id,
-    (err, result) => {
+    function(err, result) {
       if (result) {
-        res.send(true);
+        res.send({ by: req.session.user.username, text: req.body.text });
       } else {
         res.send(false);
       }

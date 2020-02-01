@@ -125,7 +125,6 @@ router.post("/upload", formParser, function(req, res, next) {
       createdAt: new Date(),
       lastEditedAt: new Date()
     });
-    u = new db(u);
     u.save(err => {
       if (err) throw err;
       console.log("Post saved");

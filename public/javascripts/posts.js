@@ -17,7 +17,7 @@
     $("#loader").remove();
     if (!loaded) {
       $("#posts").append(
-        '<div id="loader" class="col-md-12 text-center"><br><br><img src="/images/logo.gif"></div>'
+        '<div id="loader" class="col-md-12 text-center"><br><br><img src="/images/load.gif"></div>'
       );
     }
   }
@@ -38,7 +38,7 @@
         $("#posts").append(`
         <div class="alert alert-dismissible alert-success">
           <button type="button" class="close" data-dismiss="alert">&times;</button>
-          <strong>Well done!</strong> You are all up to date!
+          You are all up to date!
         </div>`);
       } else if (posts.length == 0 && page > 1) {
         load(true);
@@ -205,28 +205,29 @@
             console.log(data);
           });
       }
-      $(".comment-input-box").off("keydown");
       $(".comment-input-box").on("keydown", commentById);
 
       function commentById(key) {
         if (!this.value) return;
         else if (key.keyCode == 13) {
           var el = this;
+          console.log(this); // REMOVE THIS
           $.ajax({
             method: "POST",
             url: "/api/v1/comment",
             data: {
-              _id: el.id,
-              author: $(el).attr("author"),
+              _id: el.id, 
+              author: $(el).attr("author"), 
               text: el.value
             }
           })
-            .done(function(data) {
+            .done(function (data) {
+              console.log(data);
               $(
                 "#comments-" + el.id
-              ).append(`<a class="user-comment" href="/u/@dan-online">
-              ${$(el).attr("author")}
-          </a> ${el.value}<br>`);
+              ).append(`<a class="user-comment" href="/u/@${data.by}">
+              ${data.by}
+          </a> ${data.text}<br>`);
               el.value = "";
               show_notification("Comment added!", "success");
             })

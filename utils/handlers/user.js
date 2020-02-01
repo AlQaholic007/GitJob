@@ -4,6 +4,8 @@ var User = require("../models/user");
 var bcrypt = require("bcrypt-nodejs");
 const a = require("array-tools");
 const _ = require("lodash/_arrayIncludes");
+var guid = require("guid");
+var underscore = require("underscore");
 
 mongoose.connect(require("../../config/app").db.connectionUri, {
   useNewUrlParser: true,
@@ -152,27 +154,32 @@ function deleteOne(opt, cb) {
     }
   });
 }
-function comment(user, comment, _id, cb) {
-  User.findOne(user).exec((err, obj) => {
+
+function comment(author, comment, _id, cb) {
+  User.findOne(author).exec((err, obj) => {
     if (!obj) return cb("Does not exist.", null);
-    console.log(obj);
-    for (var i = 0; i < obj.posts.length; i++) {
-      if (obj.posts[i]._id == _id) {
-        obj.posts[i].comments.push(comment);
+    for (let i = 0; i < obj.posts.length; i++) {
+      if (obj.posts[i]._id === _id) {
+        var commentsArray = obj.posts[i].comments;
+        commentsArray.push(comment);
+        console.log(commentsArray);
+        obj.posts[i].comments = commentsArray; 
+        console.log("UPDATED POSTS", obj.posts[i]);
         obj.notifications.push({
           id: Math.random(),
-          msg: `@${comment.by} reacted to your post.`,
+          msg: `@${comment.by} commented on your post.`,
           link: `/u/@${obj.username}`,
           time: new Date()
         });
-        obj = new User(obj);
         obj.save((err, res) => {
-          return cb(err, res);
+          if (err) return cb(err, null);
+          else return cb(null, res);
         });
       }
     }
   });
 }
+
 function like(user, like, _id, cb) {
   User.findOne(user).exec((err, obj) => {
     //	if (!obj) return cb("Does not exist.",null);

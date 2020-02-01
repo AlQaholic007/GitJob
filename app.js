@@ -66,12 +66,12 @@ app.use(passport.initialize());
 var date = new Date();
 app.events = [
   {
-    title: "OpenFuel",
+    title: "GitJob",
     text: "Launching soon...",
-    img: "/images/station.png",
+    img: "/images/logo.gif",
     time: [date, date.setDate(date.getDate() + 1)],
     link: {
-      link_url: "https://openfuel.org",
+      link_url: "https://github.com/AlQaholic007/GitJob",
       link_text: "Visit"
     }
   }

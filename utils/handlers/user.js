@@ -160,11 +160,7 @@ function comment(author, comment, _id, cb) {
     if (!obj) return cb("Does not exist.", null);
     for (let i = 0; i < obj.posts.length; i++) {
       if (obj.posts[i]._id === _id) {
-        var commentsArray = obj.posts[i].comments;
-        commentsArray.push(comment);
-        console.log(commentsArray);
-        obj.posts[i].comments = commentsArray; 
-        console.log("UPDATED POSTS", obj.posts[i]);
+        obj.posts[i].push(comment);
         obj.notifications.push({
           id: Math.random(),
           msg: `@${comment.by} commented on your post.`,

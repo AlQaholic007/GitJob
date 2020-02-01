@@ -1,0 +1,73 @@
+<style>
+  .btn:focus {
+    outline: none !important;
+  }
+</style>
+<script src="/javascripts/darkreader.min.js"></script>
+<script>
+  console.log(window.location.href);
+  if (
+    window.location.href.split("?logged-in") &&
+    window.location.href.split("?logged-in").length > 1
+  ) {
+    show_notification("Welcome to GitJob");
+    window.history.pushState(null, null, window.location.pathname);
+  }
+  // const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  // const isLightMode = window.matchMedia("(prefers-color-scheme: light)")
+  //   .matches;
+  // const isNotSpecified = window.matchMedia(
+  //   "(prefers-color-scheme: no-preference)"
+  // ).matches;
+  // const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified;
+
+  // window
+  //   .matchMedia("(prefers-color-scheme: dark)")
+  //   .addListener(e => e.matches && toggleNight(true));
+  // window
+  //   .matchMedia("(prefers-color-scheme: light)")
+  //   .addListener(e => e.matches && toggleNight(false));
+
+  // if (isDarkMode) toggleNight(true);
+  // if (isLightMode && !localStorage.nightMode) toggleNight(false);
+  // if (
+  //   ((isNotSpecified || hasNoSupport) && !localStorage.nightMode) ||
+  //   (isLightMode && localStorage.nightMode) ||
+  //   localStorage.nightMode == "off"
+  // ) {
+  //   console.log(
+  //     "You specified no preference for a color scheme or your browser does not support it."
+  //   );
+  //   now = new Date();
+  //   hour = now.getHours();
+  //   if (localStorage.nightMode == "on") toggleNight(true);
+  // }
+  if (localStorage.nightMode == "on") {
+    toggleNight(true);
+  } else {
+    toggleNight(false);
+  }
+  $("#darkmode").on("click", function() {
+    toggleNight();
+  });
+  function toggleNight(night = "other") {
+    if (night != "other") {
+      if (night == true) {
+        localStorage.nightMode = "on";
+        DarkReader.enable();
+      } else {
+        localStorage.nightMode = "off";
+        DarkReader.disable();
+      }
+    } else {
+      if (localStorage.nightMode == "on") {
+        DarkReader.disable();
+        localStorage.nightMode = "off";
+      } else {
+        localStorage.nightMode = "on";
+        DarkReader.enable();
+      }
+    }
+    return localStorage.nightMode;
+  }
+</script>

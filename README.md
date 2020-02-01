@@ -1,0 +1,2 @@
+# GitJob
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/03d6528981ea49cbae853e290d755d4f)](https://app.codacy.com/manual/AlQaholic007/GitJob?utm_source=github.com&utm_medium=referral&utm_content=AlQaholic007/GitJob&utm_campaign=Badge_Grade_Dashboard)

@@ -2,7 +2,7 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]<br>
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ecc3c3b066e34e2ca8ee11b8bfcd2592)](https://www.codacy.com/manual/AlQaholic007/GitJob?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=AlQaholic007/GitJob&amp;utm_campaign=Badge_Grade) [![CircleCI](https://circleci.com/gh/AlQaholic007/GitJob.svg?style=svg)](https://circleci.com/gh/AlQaholic007/GitJob) [![Build Status](https://travis-ci.com/AlQaholic007/GitJob.svg?branch=master)](https://travis-ci.com/AlQaholic007/GitJob)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ecc3c3b066e34e2ca8ee11b8bfcd2592)](https://www.codacy.com/manual/AlQaholic007/GitJob?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=AlQaholic007/GitJob&amp;utm_campaign=Badge_Grade) [![CircleCI](https://circleci.com/gh/AlQaholic007/GitJob.svg?style=svg)](https://circleci.com/gh/AlQaholic007/GitJob) [![Build Status](https://travis-ci.org/AlQaholic007/GitJob.svg?branch=master)](https://travis-ci.org/AlQaholic007/GitJob)
 
 <!-- PROJECT LOGO -->
 <br />

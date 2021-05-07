@@ -46,7 +46,7 @@
     "socket.io": "^2.2.0",
     "socket.io-adapter-mongo": "^2.0.5",
     "time-ago": "0.2.1",
-    "underscore": "^1.9.2"
+    "underscore": "^1.12.1"
   },
   "devDependencies": {},
   "description": "A job recommendation engine written with Node.js",
